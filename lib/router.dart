@@ -37,6 +37,12 @@ final router = GoRouter(
             GoRoute(
               path: '/mesages',
               builder: (context, state) => Chat(),
+              routes: [
+                GoRoute(
+                  path: 'help',
+                  builder: (context, state) => Help(),
+                ),
+              ],
             ),
           ],
         ),
@@ -46,6 +52,12 @@ final router = GoRouter(
             GoRoute(
               path: '/notifications',
               builder: (context, state) => Notifications(),
+              routes: [
+                GoRoute(
+                  path: 'help',
+                  builder: (context, state) => Help(),
+                ),
+              ],
             ),
           ],
         ),
@@ -55,6 +67,12 @@ final router = GoRouter(
             GoRoute(
               path: '/search',
               builder: (context, state) => Search(),
+              routes: [
+                GoRoute(
+                  path: 'help',
+                  builder: (context, state) => Help(),
+                ),
+              ],
             ),
           ],
         ),

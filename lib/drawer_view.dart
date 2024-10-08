@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:test_chat/main.dart';
@@ -21,8 +23,13 @@ class _DrawerViewState extends State<DrawerView> {
             ListTile(
               title: Text('Help'),
               onTap: () {
-                drawerKey.currentState!.closeDrawer();
-                GoRouter.of(context).go('/home/help');
+                drawerKey.currentState?.closeDrawer();
+                log(GoRouter.of(context)
+                    .routerDelegate
+                    .currentConfiguration
+                    .fullPath);
+                GoRouter.of(context).go(
+                    '${GoRouter.of(context).routerDelegate.currentConfiguration.fullPath}/help');
               },
             )
           ],

@@ -11,7 +11,8 @@ class Chat extends StatefulWidget {
 class _ChatState extends State<Chat> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      appBar: AppBar(),
       drawer: DrawerView(),
       body: Center(
         child: Text('Chat'),
