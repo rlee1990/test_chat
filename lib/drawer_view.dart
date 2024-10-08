@@ -1,5 +1,5 @@
-import 'package:duck_router/duck_router.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:test_chat/main.dart';
 import 'package:test_chat/router.dart';
 
@@ -22,7 +22,7 @@ class _DrawerViewState extends State<DrawerView> {
               title: Text('Help'),
               onTap: () {
                 drawerKey.currentState!.closeDrawer();
-                DuckRouter.of(context).navigate(to: HelpLocation());
+                GoRouter.of(context).go('/home/help');
               },
             )
           ],

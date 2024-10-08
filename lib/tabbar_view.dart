@@ -1,10 +1,10 @@
-import 'package:duck_router/duck_router.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:test_chat/drawer_view.dart';
 import 'package:test_chat/main.dart';
 
 class TabbarViewScaffold extends StatefulWidget {
-  final DuckShell shell;
+  final StatefulNavigationShell shell;
   const TabbarViewScaffold({super.key, required this.shell});
 
   @override
@@ -12,8 +12,6 @@ class TabbarViewScaffold extends StatefulWidget {
 }
 
 class _TabbarViewScaffoldState extends State<TabbarViewScaffold> {
-  int _currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,20 +66,13 @@ class _TabbarViewScaffoldState extends State<TabbarViewScaffold> {
             label: 'Search',
           ),
         ],
-        selectedIndex: _currentIndex,
+        selectedIndex: widget.shell.currentIndex,
         elevation: 10,
         labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
         indicatorColor: Colors.transparent,
         indicatorShape: const CircleBorder(),
         onDestinationSelected: (index) {
-          widget.shell.switchChild(index);
-          _currentIndex = index;
-          setState(() {});
-          // if (_currentIndex == index) {
-          //   widget.shell!.switchChild(index);
-          // } else {
-          //   tabsRouter.setActiveIndex(index);
-          // }
+          widget.shell.goBranch(index, initialLocation: true);
         },
       ),
     );
