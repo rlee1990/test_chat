@@ -21,7 +21,7 @@ class _DrawerViewState extends State<DrawerView> {
             ListTile(
               title: Text('Help'),
               onTap: () {
-                drawerKey.currentState?.closeDrawer();
+                drawerKey.currentState!.closeDrawer();
                 DuckRouter.of(context).navigate(to: HelpLocation());
               },
             )
